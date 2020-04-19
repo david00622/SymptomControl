@@ -1,8 +1,10 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;	// initialize to 0
@@ -10,27 +12,25 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;		// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		//Extract data from file
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+		ReadSymptomDataFromFile readSymptoms = new ReadSymptomDataFromFile("symptoms.txt");
+		ArrayList<String> symptoms = (ArrayList<String>) readSymptoms.GetSymptoms();
 
-			line = reader.readLine();	// get another symptom
+		//Create data structure for results count
+		Map<String, Integer> resultsSorted = new TreeMap<String, Integer>();
+
+		//Iterate over the gathered list
+		for (Iterator<String> it = symptoms.iterator(); it.hasNext();) {
+
+		//Get current element from iterator
+		String element = it.next();
+
+		if (!resultsSorted.keySet().contains(element))
+		resultsSorted.put(element, 1);
+
+		else
+		resultsSorted.put(element, resultsSorted.get(element) + 1);
 		}
 		
 		// next generate output
