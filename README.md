@@ -3,3 +3,7 @@
 ## Cette version comporte la nouvelle partie de lecture des symptômes du programme.
 
 Version : 0.0.1
+
+## Cette version comporte la nouvelle partie de génération des résultats du programme.
+
+Version : 0.0.2

@@ -33,11 +33,19 @@ public class AnalyticsCounter {
 		resultsSorted.put(element, resultsSorted.get(element) + 1);
 		}
 		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
+		//Next generate output
+		FileWriter writer = new FileWriter("result.out");
+
+		for (Iterator<String> resultsSortedIt = resultsSorted.keySet().iterator(); resultsSortedIt.hasNext();) {
+
+		//Get current element from map
+		String key = resultsSortedIt.next();
+		Integer value = resultsSorted.get(key);
+
+		//Write Key + Value on the file
+		writer.write(key + "=" + value + "\r\n");
+		}
+		
 		writer.close();
 	}
 }
