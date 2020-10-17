@@ -1,13 +1,13 @@
 # Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application
 
-## Cette version comporte la nouvelle partie de lecture des symptômes du programme.
+## Features the new symptoms reader completing the first version.
 
-Version : 0.0.1
+Version : 1.0.0
 
-## Cette version comporte la nouvelle partie de génération des résultats du programme.
+## Features the new program's part, generating the test result.
 
-Version : 0.0.2
+Version : 0.2.0
 
-## Cette version comporte le refactoring du code, créant les méthodes nécessaires et supprimant les commentaires et variables non-nécessaires d'Alex.
+## Code refactoring: Creating necessary methods and deleting Alex's uncessery comments.
 
-Version : 1
+Version : 0.1.0
